@@ -1,13 +1,13 @@
 {
-    "name": "filesA",
-    "version": "0.0.1",
+    "name": "filesa",
+    "version": "0.0.2",
     "description": "Proves File system",
     "files": [
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
-        "filesA.cpp",
-        "filesA.ts"
+        "filesa.cpp",
+        "filesa.ts"
     ],
     "testFiles": [
         "tests.ts"
@@ -26,5 +26,5 @@
             }
         }
     },
-    "installedVersion": "file:../pxt-filesystem"
+    "installedVersion": "file:../pxt-test2"
 }
