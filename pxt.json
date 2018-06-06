@@ -6,8 +6,8 @@
         "README.md",
         "enums.d.ts",
         "shims.d.ts",
-        "files.cpp",
-        "files.ts"
+        "filesA.cpp",
+        "filesA.ts"
     ],
     "testFiles": [
         "tests.ts"

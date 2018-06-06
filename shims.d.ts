@@ -109,19 +109,33 @@ declare namespace filesA {
      */
     //% weight=0 advanced=true shim=filesA::fsRead
     function fsRead(fd: number): number;
-	
-    /**
-     *
-     */
-    //% weight=0 advanced=true shim=filesA::filesA_SetByte
-	function filesA_SetByte(name: string, value: number): void;
-	
-    /**
-     *
-     */
-    //% weight=0 advanced=true shim=filesA::filesA_GetByte
-	function filesA_GetByte(name: string): number;
 
+    /**
+     * Guarda un valor
+     * @param name nom variable
+     * @param valor de variable
+     */
+    //% advanced=true weight=10
+    //% blockId=filesA_Set block="aaafiles create directory %name" shim=filesA::filesA_Set
+    function filesA_Set(name: string, value: string): void;
+
+    /**
+     * Guarda un byte
+     * @param name nom variable
+     * @param valor (un byte)
+     */
+    //% advanced=true weight=10
+    //% blockId=filesA_SetByte block="aaafiles create directory %name" shim=filesA::filesA_SetByte
+    function filesA_SetByte(name: string, value: number): void;
+
+    /**
+     * Retorna un valor
+     * @param name nom variable
+     * @param valor de variable
+     */
+    //% advanced=true weight=10
+    //% blockId=filesA_GetByte block="aaafiles create directory %name" shim=filesA::filesA_GetByte
+    function filesA_GetByte(name: string): number;
 }
 
 // Auto-generated. Do not edit. Really.

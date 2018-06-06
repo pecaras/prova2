@@ -254,8 +254,10 @@ int fsRead(int fd) {
 */
 //% advanced=true weight=10
 //% blockId=filesA_Set block="aaafiles create directory %name"
-void filesA_Set(ManagedString name, ManagedString value) {
-    uBit.storage.put(name.toCharArray(), (uint8_t *)value.toCharArray(), value.length());
+void filesA_Set(StringData* name, StringData* value) {
+    ManagedString n(name);
+    ManagedString v(value);
+    uBit.storage.put(n.toCharArray(), (uint8_t *)v.toCharArray(), v.length());
 }
 
 /**
@@ -265,8 +267,9 @@ void filesA_Set(ManagedString name, ManagedString value) {
 */
 //% advanced=true weight=10
 //% blockId=filesA_SetByte block="aaafiles create directory %name"
-void filesA_SetByte(ManagedString name, int value) {
-    uBit.storage.put(name.toCharArray(), (uint8_t *)&value, sizeof(int));
+void filesA_SetByte(StringData* name, int value) {
+    ManagedString n(name);
+    uBit.storage.put(n.toCharArray(), (uint8_t *)&value, sizeof(int));
 }
 
 /**
@@ -276,8 +279,9 @@ void filesA_SetByte(ManagedString name, int value) {
 */
 //% advanced=true weight=10
 //% blockId=filesA_GetByte block="aaafiles create directory %name"
-int filesA_GetByte(ManagedString name) {
-    KeyValuePair* nomvalor = uBit.storage.get(name.toCharArray());
+int filesA_GetByte(StringData* name) {
+    ManagedString n(name);
+    KeyValuePair* nomvalor = uBit.storage.get(n.toCharArray());
     int resultat;
     memcpy(&resultat, nomvalor->value, sizeof(int));
     return resultat;
