@@ -2,7 +2,7 @@
 * File system operations
 */
 //% weight=5 color=#002050 icon="\uf0a0"
-namespace filesA {
+namespace filesa {
     /**
     * Appends a number to a file
     * @param filename file name, eg: "output.txt"
@@ -11,7 +11,7 @@ namespace filesA {
     //% blockId="fs_append_number" block="file %filename|append number %value"
     //% blockExternalInputs=1 weight=85
     export function appendNumber(filename: string, value: number) {
-        filesA.appendString(filename, value.toString());
+        filesa.appendString(filename, value.toString());
     }
 
     /**
@@ -34,10 +34,10 @@ namespace filesA {
     //% blockId=settings_write_number block="settings save number %name|as %value"
     //% weight=20 blockGap=8
     export function settingsSaveNumber(name: string, value: number) {
-        filesA.createDirectory("settings");
+        filesa.createDirectory("settings");
         const fn = "settings/" + name;
-        filesA.remove(fn);
-        filesA.appendNumber(fn, value);
+        filesa.remove(fn);
+        filesa.appendNumber(fn, value);
     }
 
     /**
@@ -63,7 +63,7 @@ namespace filesA {
         //% blockId=fs_file_open block="%this|open" advanced=true
         public open(): void {
             if (this.fd < 0)
-                this.fd = filesA.fsOpen(this.path);
+                this.fd = filesa.fsOpen(this.path);
         }
 
         /**
@@ -72,7 +72,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_flush block="%this|close" advanced=true
         public flush(): void {
-            filesA.fsFlush(this.fd);
+            filesa.fsFlush(this.fd);
         }
 
         /**
@@ -81,7 +81,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_close block="%this|close" advanced=true
         public close(): void {
-            filesA.fsClose(this.fd);
+            filesa.fsClose(this.fd);
             this.fd = -1;
         }
 
@@ -91,7 +91,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_remove block="%this|remove" advanced=true
         public remove(): void {
-            filesA.fsRemove(this.path);
+            filesa.fsRemove(this.path);
             this.fd = -1;
         }
 
@@ -102,7 +102,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_seek block="%this|seek offset %offset|from %flags" advanced=true
         public seek(offset: number, flags: FileSystemSeekFlags): void {
-            filesA.fsSeek(this.fd, offset, flags);
+            filesa.fsSeek(this.fd, offset, flags);
         }
 
         /**
@@ -111,7 +111,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_position block="%this|position" advanced=true
         public position(): number {
-            return filesA.fsSeek(this.fd, 0, FileSystemSeekFlags.Current);
+            return filesa.fsSeek(this.fd, 0, FileSystemSeekFlags.Current);
         }
 
         /**
@@ -121,7 +121,7 @@ namespace filesA {
         //% blockGap=8 advanced=true
         //% blockId=fs_file_set_position block="%this|set position %position"
         public setPosition(position: number): void {
-            filesA.fsSeek(this.fd, position, FileSystemSeekFlags.Set);
+            filesa.fsSeek(this.fd, position, FileSystemSeekFlags.Set);
         }
 
         /**
@@ -130,7 +130,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_write_string block="%this|write string %text" advanced=true
         public writeString(text: string): void {
-            filesA.fsWriteString(this.fd, text);
+            filesa.fsWriteString(this.fd, text);
         }
 
         /**
@@ -139,7 +139,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_write_buffer block="%this|write buffer %buffer" advanced=true
         public writeBuffer(buffer: Buffer): void {
-            filesA.fsWriteBuffer(this.fd, buffer);
+            filesa.fsWriteBuffer(this.fd, buffer);
         }
 
         /**
@@ -149,7 +149,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_read_buffer block="%this|read buffer (bytes) %length" advanced=true
         public readBuffer(length: number): Buffer {
-            return filesA.fsReadBuffer(this.fd, length);
+            return filesa.fsReadBuffer(this.fd, length);
         }
 
         /**
@@ -158,7 +158,7 @@ namespace filesA {
         //% blockGap=8
         //% blockId=fs_file_read block="%this|read" advanced=true
         public read(): number {
-            return filesA.fsRead(this.fd);
+            return filesa.fsRead(this.fd);
         }
     }
 }

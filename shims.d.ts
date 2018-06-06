@@ -5,7 +5,7 @@
      * File system operations
      */
     //% weight=5 color=#002050 icon="\uf0a0"
-declare namespace filesA {
+declare namespace filesa {
 
     /**
      * Appends text and a new line to a file
@@ -13,7 +13,7 @@ declare namespace filesA {
      * @param text the string to append to the end of the file
      */
     //% blockId="files_append_line" block="file %filename|append line %text"
-    //% blockExternalInputs=1 weight=90 blockGap=8 shim=filesA::appendLine
+    //% blockExternalInputs=1 weight=90 blockGap=8 shim=filesa::appendLine
     function appendLine(filename: string, text: string): void;
 
     /**
@@ -22,7 +22,7 @@ declare namespace filesA {
      * @param text the string to append to the end of the file
      */
     //% blockId="fs_append_string" block="file %filename|append string %text"
-    //% blockExternalInputs=1 weight=86 blockGap=8 shim=filesA::appendString
+    //% blockExternalInputs=1 weight=86 blockGap=8 shim=filesa::appendString
     function appendString(filename: string, text: string): void;
 
     /**
@@ -30,7 +30,7 @@ declare namespace filesA {
      * @param filename file name, eg: "output.txt"
      */
     //% blockId="fs_write_to_serial" block="file %filename|read to serial"
-    //% weight=80 shim=filesA::readToSerial
+    //% weight=80 shim=filesa::readToSerial
     function readToSerial(filename: string): void;
 
     /**
@@ -38,7 +38,7 @@ declare namespace filesA {
      * @param filename name of the file to remove, eg: "output.txt"
      */
     //% blockId="fs_remove" block="file remove %filename"
-    //% weight=80 advanced=true blockGap=8 shim=filesA::remove
+    //% weight=80 advanced=true blockGap=8 shim=filesa::remove
     function remove(filename: string): void;
 
     /**
@@ -46,7 +46,7 @@ declare namespace filesA {
      * @param name full qualified path to the new directory
      */
     //% advanced=true weight=10
-    //% blockId=files_create_directory block="files create directory %name" shim=filesA::createDirectory
+    //% blockId=files_create_directory block="files create directory %name" shim=filesa::createDirectory
     function createDirectory(name: string): void;
 
     /**
@@ -54,60 +54,60 @@ declare namespace filesA {
      * @param name name of the settings, must be filename compatible, e.g.: setting
      */
     //% blockId=settings_read_number block="settings read number %name"
-    //% weight=19 shim=filesA::settingsReadNumber
+    //% weight=19 shim=filesa::settingsReadNumber
     function settingsReadNumber(name: string): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsOpen
+    //% weight=0 advanced=true shim=filesa::fsOpen
     function fsOpen(path: string): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsFlush
+    //% weight=0 advanced=true shim=filesa::fsFlush
     function fsFlush(fd: number): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsClose
+    //% weight=0 advanced=true shim=filesa::fsClose
     function fsClose(fd: number): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsRemove
+    //% weight=0 advanced=true shim=filesa::fsRemove
     function fsRemove(name: string): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsSeek
+    //% weight=0 advanced=true shim=filesa::fsSeek
     function fsSeek(fd: number, offset: number, flags: number): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsWriteString
+    //% weight=0 advanced=true shim=filesa::fsWriteString
     function fsWriteString(fd: number, text: string): number;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsWriteBuffer
+    //% weight=0 advanced=true shim=filesa::fsWriteBuffer
     function fsWriteBuffer(fd: number, buffer: Buffer): number;
 
     /**
      */
-    //% weight=0 advanced=true shim=filesA::fsReadBuffer
+    //% weight=0 advanced=true shim=filesa::fsReadBuffer
     function fsReadBuffer(fd: number, length: number): Buffer;
 
     /**
      *
      */
-    //% weight=0 advanced=true shim=filesA::fsRead
+    //% weight=0 advanced=true shim=filesa::fsRead
     function fsRead(fd: number): number;
 
     /**
@@ -116,8 +116,8 @@ declare namespace filesA {
      * @param valor de variable
      */
     //% advanced=true weight=10
-    //% blockId=filesA_Set block="aaafiles create directory %name" shim=filesA::filesA_Set
-    function filesA_Set(name: string, value: string): void;
+    //% blockId=filesa_Set block="aaafiles create directory %name" shim=filesa::filesa_Set
+    function filesa_Set(name: string, value: string): void;
 
     /**
      * Guarda un byte
@@ -125,8 +125,8 @@ declare namespace filesA {
      * @param valor (un byte)
      */
     //% advanced=true weight=10
-    //% blockId=filesA_SetByte block="aaafiles create directory %name" shim=filesA::filesA_SetByte
-    function filesA_SetByte(name: string, value: number): void;
+    //% blockId=filesa_SetByte block="aaafiles create directory %name" shim=filesa::filesa_SetByte
+    function filesa_SetByte(name: string, value: number): void;
 
     /**
      * Retorna un valor
@@ -134,8 +134,8 @@ declare namespace filesA {
      * @param valor de variable
      */
     //% advanced=true weight=10
-    //% blockId=filesA_GetByte block="aaafiles create directory %name" shim=filesA::filesA_GetByte
-    function filesA_GetByte(name: string): number;
+    //% blockId=filesa_GetByte block="aaafiles create directory %name" shim=filesa::filesa_GetByte
+    function filesa_GetByte(name: string): number;
 }
 
 // Auto-generated. Do not edit. Really.

@@ -13,7 +13,7 @@
     //% block=end
     End = 0x02,  // MB_SEEK_END
     }
-declare namespace filesA {
+declare namespace filesa {
 }
 
 // Auto-generated. Do not edit. Really.

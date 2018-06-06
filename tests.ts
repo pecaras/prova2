@@ -3,64 +3,64 @@ let file = "";
 input.onButtonPressed(Button.B, () => {
     file = "data" + (fi++) + ".csv";
     serial.writeLine(file);
-    filesA.remove(file)
-    filesA.readToSerial(file);
+    filesa.remove(file)
+    filesa.readToSerial(file);
     serial.writeLine("");
     basic.showString("o")
     for (let i = 0; i < 200; ++i) {
         let t = input.runningTime();
         let ay = input.acceleration(Dimension.Y);
-        filesA.appendNumber(file, i);
-        filesA.appendString(file, " ");
-        filesA.appendNumber(file, i * i);
-        filesA.appendLine(file, "");
+        filesa.appendNumber(file, i);
+        filesa.appendString(file, " ");
+        filesa.appendNumber(file, i * i);
+        filesa.appendLine(file, "");
         serial.writeLine(".")
         basic.pause(10)
     }
     serial.writeLine("");
-    filesA.readToSerial(file);
+    filesa.readToSerial(file);
     basic.showString(":)")
 })
 let test = Math.random(1000);
-filesA.settingsSaveNumber("test", test);
+filesa.settingsSaveNumber("test", test);
 serial.writeValue("test", test);
-let serTest = filesA.settingsReadNumber("test");
+let serTest = filesa.settingsReadNumber("test");
 serial.writeValue("serTest", serTest);
 control.assert(test == serTest);
 
-let f = filesA.open("output.txt");
+let f = filesa.open("output.txt");
 f.writeString("writeString\r\n");
 f.seek(0, FileSystemSeekFlags.End);
 f.flush();
 f.close();
 
 input.onButtonPressed(Button.A, () => {
-    filesA.appendLine(
+    filesa.appendLine(
         "output.txt",
         "hello"
     )
 })
 input.onButtonPressed(Button.B, () => {
     basic.showString("H")
-    filesA.readToSerial("output.txt")
+    filesa.readToSerial("output.txt")
     serial.writeString("Hi")
 })
 
 const fn = "out2.txt";
 input.onButtonPressed(Button.A, () => {
     basic.showString("o")
-    filesA.appendLine(fn, "hello");
+    filesa.appendLine(fn, "hello");
     serial.writeString("[")
-    filesA.readToSerial(fn)
+    filesa.readToSerial(fn)
 })
 const fo = "output.txt";
 input.onButtonPressed(Button.A, () => {
-    filesA.appendLine(fo, "hello")
+    filesa.appendLine(fo, "hello")
     serial.writeString("W")
     basic.showString("W")
 })
 input.onButtonPressed(Button.B, () => {
-    filesA.readToSerial(fo)
+    filesa.readToSerial(fo)
     serial.writeString("Hi")
     basic.showString("H")
 })

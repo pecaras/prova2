@@ -25,7 +25,7 @@ enum FileSystemSeekFlags {
 * File system operations
 */
 //% weight=5 color=#002050 icon="\uf0a0"
-namespace filesA
+namespace filesa
 {    
 // Initializes file system. Must be called before any FS operation.
 // built-in size computation for file system
@@ -253,8 +253,8 @@ int fsRead(int fd) {
 * @param valor de variable
 */
 //% advanced=true weight=10
-//% blockId=filesA_Set block="aaafiles create directory %name"
-void filesA_Set(StringData* name, StringData* value) {
+//% blockId=filesa_Set block="aaafiles create directory %name"
+void filesa_Set(StringData* name, StringData* value) {
     ManagedString n(name);
     ManagedString v(value);
     uBit.storage.put(n.toCharArray(), (uint8_t *)v.toCharArray(), v.length());
@@ -266,8 +266,8 @@ void filesA_Set(StringData* name, StringData* value) {
 * @param valor (un byte)
 */
 //% advanced=true weight=10
-//% blockId=filesA_SetByte block="aaafiles create directory %name"
-void filesA_SetByte(StringData* name, int value) {
+//% blockId=filesa_SetByte block="aaafiles create directory %name"
+void filesa_SetByte(StringData* name, int value) {
     ManagedString n(name);
     uBit.storage.put(n.toCharArray(), (uint8_t *)&value, sizeof(int));
 }
@@ -278,8 +278,8 @@ void filesA_SetByte(StringData* name, int value) {
 * @param valor de variable
 */
 //% advanced=true weight=10
-//% blockId=filesA_GetByte block="aaafiles create directory %name"
-int filesA_GetByte(StringData* name) {
+//% blockId=filesa_GetByte block="aaafiles create directory %name"
+int filesa_GetByte(StringData* name) {
     ManagedString n(name);
     KeyValuePair* nomvalor = uBit.storage.get(n.toCharArray());
     int resultat;
